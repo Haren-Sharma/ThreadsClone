@@ -42,7 +42,7 @@ export const users: User[] = [
 export const posts: Post[] = [
   {
     id: "p1",
-    createdAt: "2025-06-25T10:00:00Z",
+    createdAt: "2025-06-20T10:00:00Z",
     content: "Excited to start a new React Native project!",
     user_id: "u1",
     user: users[0],
