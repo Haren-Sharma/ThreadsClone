@@ -11,7 +11,7 @@ export default function PostListItem({ post }: { post: Post }) {
     <Pressable className="flex-row p-4 border-b border-gray-800/70"> 
       {/* Avatar */}
       <Image
-        source={{ uri: post.user.image }}
+        source={{ uri: post.user.avatar_url }}
         className="w-10 h-10 rounded-full mr-3"
       />
 
@@ -20,7 +20,7 @@ export default function PostListItem({ post }: { post: Post }) {
         {/* Header */}
         <View className="flex-row items-center flex-wrap gap-x-1">
           <Text className="text-white font-semibold">{post.user.username}</Text>
-          <Text className="text-gray-500">· {dayjs(post.createdAt).fromNow()}</Text>
+          <Text className="text-gray-500">· {dayjs(post.created_at).fromNow()}</Text>
         </View>
 
         {/* Content */}
@@ -35,7 +35,7 @@ export default function PostListItem({ post }: { post: Post }) {
 
           <View className="flex-row items-center space-x-1">
             <Feather name="message-circle" size={16} color="#d1d5db" />
-            <Text className="text-gray-400 text-sm ml-2">{post.replies.length}</Text>
+            <Text className="text-gray-400 text-sm ml-2">{0}</Text>
           </View>
           <View className="flex-row items-center space-x-1">
             <Feather name="repeat" size={16} color="#d1d5db" />
