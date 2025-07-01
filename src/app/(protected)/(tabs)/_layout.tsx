@@ -26,15 +26,6 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile"
-        options={{
-          title: "Profile",
-          tabBarIcon({ color, size }) {
-            return <Feather name="user" size={size} color={color} />;
-          },
-        }}
-      />
-      <Tabs.Screen
         name="search"
         options={{
           title: "Search",
@@ -43,6 +34,15 @@ export default function TabsLayout() {
           },
         }}
       />
+        <Tabs.Screen
+          name="profile"
+          options={{
+            title: "Profile",
+            tabBarIcon({ color, size }) {
+              return <Feather name="user" size={size} color={color} />;
+            },
+          }}
+        />
     </Tabs>
   );
 }

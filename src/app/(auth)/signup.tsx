@@ -6,22 +6,58 @@ import {
   Pressable,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
+  ActivityIndicator,
 } from "react-native";
 import { Link } from "expo-router";
+import { supabase } from "@/lib/supabase";
 
-export default function LoginScreen() {
+export default function SignupScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [focused, setFocused] = useState<"email" | "password" | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = () => {
+  async function signUpFunction() {
     if (!email || !password) {
-      alert("Please enter both email and password.");
+      Alert.alert("Missing Fields", "Please enter both email and password!");
       return;
     }
-    // Handle login logic here
-    alert(`Logging in as ${email}`);
-  };
+
+    setLoading(true);
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      console.log("Sign-up successful:", data);
+
+      if (!data.session) {
+        Alert.alert(
+          "Verify Your Email",
+          "Please check your inbox to confirm your email before logging in."
+        );
+      } else {
+        Alert.alert("Success", "Signed up and logged in successfully!");
+        // Optionally navigate to the next screen here
+      }
+    } catch (err) {
+      const message =
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again.";
+      console.error("Sign-up error:", message);
+      Alert.alert("Sign-up Failed", message);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <View className="flex-1 bg-neutral-900">
@@ -74,13 +110,13 @@ export default function LoginScreen() {
             />
           </View>
 
-          {/* Login Button */}
           <Pressable
-            onPress={handleLogin}
-            className="bg-white rounded-xl py-3 mb-5 shadow-md shadow-blue-500/20 active:opacity-80"
+            onPress={signUpFunction}
+            className="bg-white rounded-xl py-3 mb-5 shadow-md shadow-blue-500/20 active:opacity-80 flex-row justify-center gap-2"
           >
+            {loading && <ActivityIndicator />}
             <Text className="text-black text-center text-base font-semibold">
-              Login
+              Sign Up
             </Text>
           </Pressable>
 
@@ -88,7 +124,7 @@ export default function LoginScreen() {
           <View className="flex-row justify-center">
             <Text className="text-gray-400">Already have an account? </Text>
             <Link href="/login">
-              <Text className="text-blue-400 font-semibold">Log In</Text>
+              <Text className="text-blue-400 font-semibold">Sign In</Text>
             </Link>
           </View>
         </View>

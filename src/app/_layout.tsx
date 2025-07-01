@@ -1,6 +1,7 @@
 import "../../global.css";
 import { Slot } from "expo-router";
 import { ThemeProvider, DarkTheme } from "@react-navigation/native";
+import AuthContextProvider from "@/providers/AuthContextProvider";
 
 export default function RootLayout() {
   const myTheme = {
@@ -8,7 +9,7 @@ export default function RootLayout() {
     colors: {
       ...DarkTheme.colors,
       primary: "white",
-      card:"#101010",//background color of the header and footer
+      card: "#101010", //background color of the header and footer
     },
   };
   /*
@@ -20,7 +21,9 @@ export default function RootLayout() {
    */
   return (
     <ThemeProvider value={myTheme}>
-      <Slot />
+      <AuthContextProvider>
+        <Slot />
+      </AuthContextProvider>
     </ThemeProvider>
   );
 }

@@ -6,22 +6,40 @@ import {
   Pressable,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
+  ActivityIndicator,
 } from "react-native";
 import { Link } from "expo-router";
+import { supabase } from "@/lib/supabase";
 
 export default function LoginScreen() {
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [focused, setFocused] = useState<"email" | "password" | null>(null);
 
-  const handleLogin = () => {
-    if (!email || !password) {
-      alert("Please enter both email and password.");
-      return;
-    }
-    // Handle login logic here
-    alert(`Logging in as ${email}`);
-  };
+  async function handleLogin() {
+  if (!email || !password) {
+    Alert.alert("Missing Fields", "Please enter both email and password!");
+    return;
+  }
+  setLoading(true);
+  try {
+    const { error, data } = await supabase.auth.signInWithPassword({email,password});
+    if (error) throw error;
+
+    console.log("Login successful:", data.user.id);
+    // Navigate to next screen or perform post-login actions here
+
+  } catch (err) {
+    const message =
+      err instanceof Error ? err.message : "Something went wrong. Please try again.";
+    Alert.alert("Login Failed", message);
+  } finally {
+    setLoading(false);
+  }
+}
+
 
   return (
     <View className="flex-1 bg-neutral-900">
@@ -77,8 +95,9 @@ export default function LoginScreen() {
           {/* Login Button */}
           <Pressable
             onPress={handleLogin}
-            className="bg-white rounded-xl py-3 mb-5 shadow-md shadow-blue-500/20 active:opacity-80"
+            className="bg-white rounded-xl py-3 mb-5 shadow-md shadow-blue-500/20 active:opacity-80 flex-row justify-center gap-2"
           >
+            {loading && <ActivityIndicator />}
             <Text className="text-black text-center text-base font-semibold">
               Login
             </Text>
