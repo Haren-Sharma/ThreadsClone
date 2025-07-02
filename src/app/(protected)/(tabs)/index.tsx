@@ -43,11 +43,6 @@ export default function HomeScreen() {
     <FlatList
       data={posts}
       renderItem={({ item }) => <PostListItem post={item} />}
-      ListHeaderComponent={() => (
-        <Link href="/new" className="text-center text-2xl text-blue-500 p-5">
-          New Post
-        </Link>
-      )}
     />
   );
 }
