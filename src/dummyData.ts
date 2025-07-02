@@ -4,35 +4,35 @@ export const users: User[] = [
     id: "u1",
     username: "haren_dev",
     name: "Haren Sharma",
-    image: "https://i.pravatar.cc/150?img=1",
+    avatar_url: "https://i.pravatar.cc/150?img=1",
     bio: "Full-stack dev. Explorer of thoughts and tech.",
   },
   {
     id: "u2",
     username: "kushal_js",
     name: "Kushal Gupta",
-    image: "https://i.pravatar.cc/150?img=2",
+    avatar_url: "https://i.pravatar.cc/150?img=2",
     bio: "React Native ninja. Coffee and code lover.",
   },
   {
     id: "u3",
     username: "ananya.tech",
     name: "Ananya Mehta",
-    image: "https://i.pravatar.cc/150?img=3",
+    avatar_url: "https://i.pravatar.cc/150?img=3",
     bio: "UX researcher turned frontend enthusiast.",
   },
   {
     id: "u4",
     username: "rohit.codes",
     name: "Rohit Verma",
-    image: "https://i.pravatar.cc/150?img=4",
+    avatar_url: "https://i.pravatar.cc/150?img=4",
     bio: "Backend engineer, Golang and cloud addict.",
   },
   {
     id: "u5",
     username: "riya.designs",
     name: "Riya Kapoor",
-    image: "https://i.pravatar.cc/150?img=5",
+    avatar_url: "https://i.pravatar.cc/150?img=5",
     bio: "Pixel perfectionist. Figma is my playground.",
   },
 ];
@@ -42,7 +42,7 @@ export const users: User[] = [
 export const posts: Post[] = [
   {
     id: "p1",
-    createdAt: "2025-06-20T10:00:00Z",
+    created_at: "2025-06-20T10:00:00Z",
     content: "Excited to start a new React Native project!",
     user_id: "u1",
     user: users[0],
@@ -52,7 +52,7 @@ export const posts: Post[] = [
   },
   {
     id: "p2",
-    createdAt: "2025-06-25T10:05:00Z",
+    created_at: "2025-06-25T10:05:00Z",
     content: "That sounds awesome! Let me know if you need any help.",
     user_id: "u2",
     user: users[1],
@@ -62,7 +62,7 @@ export const posts: Post[] = [
   },
   {
     id: "p3",
-    createdAt: "2025-06-25T10:10:00Z",
+    created_at: "2025-06-25T10:10:00Z",
     content: "What stack are you planning to use?",
     user_id: "u3",
     user: users[2],
@@ -72,7 +72,7 @@ export const posts: Post[] = [
   },
   {
     id: "p4",
-    createdAt: "2025-06-25T10:20:00Z",
+    created_at: "2025-06-25T10:20:00Z",
     content: "Going with Expo + TypeScript for quick dev cycles.",
     user_id: "u1",
     user: users[0],
@@ -82,7 +82,7 @@ export const posts: Post[] = [
   },
   {
     id: "p5",
-    createdAt: "2025-06-25T11:00:00Z",
+    created_at: "2025-06-25T11:00:00Z",
     content: "Deploying to production gives a different thrill 😎",
     user_id: "u4",
     user: users[3],
@@ -92,7 +92,7 @@ export const posts: Post[] = [
   },
   {
     id: "p6",
-    createdAt: "2025-06-25T11:05:00Z",
+    created_at: "2025-06-25T11:05:00Z",
     content: "Only if the CI doesn't break 😂",
     user_id: "u2",
     user: users[1],
@@ -102,7 +102,7 @@ export const posts: Post[] = [
   },
   {
     id: "p7",
-    createdAt: "2025-06-25T12:00:00Z",
+    created_at: "2025-06-25T12:00:00Z",
     content: "Design systems save time. Period.",
     user_id: "u5",
     user: users[4],
@@ -112,7 +112,7 @@ export const posts: Post[] = [
   },
   {
     id: "p8",
-    createdAt: "2025-06-25T12:10:00Z",
+    created_at: "2025-06-25T12:10:00Z",
     content: "Totally agree. I started using one last month.",
     user_id: "u3",
     user: users[2],
@@ -122,7 +122,7 @@ export const posts: Post[] = [
   },
   {
     id: "p9",
-    createdAt: "2025-06-25T12:30:00Z",
+    created_at: "2025-06-25T12:30:00Z",
     content: "Working on a custom dark theme for our app!",
     user_id: "u5",
     user: users[4],
@@ -132,7 +132,7 @@ export const posts: Post[] = [
   },
   {
     id: "p10",
-    createdAt: "2025-06-25T13:00:00Z",
+    created_at: "2025-06-25T13:00:00Z",
     content: "Just pushed a commit that fixed a 3-day bug 😤",
     user_id: "u1",
     user: users[0],
@@ -142,7 +142,7 @@ export const posts: Post[] = [
   },
   {
     id: "p11",
-    createdAt: "2025-06-25T13:05:00Z",
+    created_at: "2025-06-25T13:05:00Z",
     content: "That feeling is underrated. Respect!",
     user_id: "u2",
     user: users[1],
@@ -152,7 +152,7 @@ export const posts: Post[] = [
   },
   {
     id: "p12",
-    createdAt: "2025-06-25T13:10:00Z",
+    created_at: "2025-06-25T13:10:00Z",
     content: "We’ve all been there 😅",
     user_id: "u3",
     user: users[2],
@@ -162,7 +162,7 @@ export const posts: Post[] = [
   },
   {
     id: "p13",
-    createdAt: "2025-06-25T13:15:00Z",
+    created_at: "2025-06-25T13:15:00Z",
     content: "Do you write tests for those tricky parts?",
     user_id: "u4",
     user: users[3],
@@ -172,7 +172,7 @@ export const posts: Post[] = [
   },
   {
     id: "p14",
-    createdAt: "2025-06-25T13:20:00Z",
+    created_at: "2025-06-25T13:20:00Z",
     content: "Yeah, snapshot + unit tests helped this time.",
     user_id: "u1",
     user: users[0],
@@ -182,7 +182,7 @@ export const posts: Post[] = [
   },
   {
     id: "p15",
-    createdAt: "2025-06-25T14:00:00Z",
+    created_at: "2025-06-25T14:00:00Z",
     content: "Refactoring the navigation stack today. Wish me luck!",
     user_id: "u2",
     user: users[1],

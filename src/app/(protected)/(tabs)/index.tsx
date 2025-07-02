@@ -1,11 +1,8 @@
 import PostListItem from "@/components/PostListItem";
-import { posts } from "@/dummyData";
 import { supabase } from "@/lib/supabase";
-import { Post } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "expo-router";
-import { useEffect, useState } from "react";
-import { ActivityIndicator, Alert, FlatList, Text, View } from "react-native";
+import { ActivityIndicator, FlatList, Text, View } from "react-native";
 
 export default function HomeScreen() {
   const fetchPosts = async () => {
